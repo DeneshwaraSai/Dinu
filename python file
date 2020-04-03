@@ -1,0 +1,15 @@
+arr = [1,4,2,5,3,6]
+swap = 0
+n = len(arr)
+for i in range(n-1):
+    min_pos = i
+    for j in range(i,(n-1)):
+        if(arr[j]<arr[min_pos]):
+            min_pos = j
+    temp = arr[i]
+    arr[i] = arr[min_pos]
+    arr[min_pos] = temp
+
+    print(arr)
+    
+print(arr)
