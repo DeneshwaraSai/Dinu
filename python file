@@ -1,5 +1,4 @@
 arr = [1,4,2,5,3,6]
-swap = 0
 n = len(arr)
 for i in range(n-1):
     min_pos = i
