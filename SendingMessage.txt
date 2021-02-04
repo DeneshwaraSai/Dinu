@@ -1,0 +1,141 @@
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_margin="12px"
+    android:padding="12px">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a valid Phone Number"
+        android:inputType="phone"
+        android:id="@+id/phno"></EditText>
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="399dp"
+        android:hint="Message"
+        android:layout_margin="12px"
+        android:gravity="top"
+        android:inputType="text"></EditText>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Submit"
+        android:id="@+id/submit"
+        android:onClick="sendMessage">
+
+    </Button>
+
+</LinearLayout>
+
+-----------------------------------------
+
+AndroidManifest.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sendingmessage">
+<uses-permission android:name="android.permission.SEND_SMS"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest
+
+----------------------------
+mainActivity.java
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+EditText phno,messages;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        phno = findViewById(R.id.phno);
+        messages = findViewById(R.id.message);
+    }
+
+    public void sendMessage(View view) {
+        int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
+
+        if(permission == PackageManager.PERMISSION_GRANTED)
+        {
+            myMessage();
+        }
+        else
+        {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},0);
+        }
+    }
+
+    private void myMessage(){
+        String phone = phno.getText().toString().trim();
+        String message = messages.getText().toString().trim();
+
+        if(!phno.getText().toString().equals("") || !messages.getText().toString().equals("") )
+        {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phone,null,message,null,null);
+
+            Toast.makeText( this,"Message Send",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(this, "Please Enter your details......", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch(requestCode)
+        {
+            case 0:
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    myMessage();
+                }
+                else
+                {
+                    Toast.makeText(this, "Please provide permissions to run this app", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+
+    }
+}

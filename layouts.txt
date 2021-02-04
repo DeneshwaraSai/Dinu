@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Click Me"></Button>
+   
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Click Me"></Button>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Click Me"></Button>
+
+</LinearLayout>
+---------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Click Me"></Button>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_x="130dp"
+       android:layout_y="210dp"
+       android:text="Click Me"></Button>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_y="400px"
+       android:layout_x="350px"
+       android:text="Click Me"></Button>
+</AbsoluteLayout>
+------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Button1"
+       android:id="@+id/b1"></Button>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/b1"
+       android:text="Button2"
+       android:paddingEnd="80px"
+       android:paddingStart="80px"
+       android:id="@+id/b2">
+   </Button>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Button1"
+       android:layout_alignParentBottom="true"
+       android:id="@+id/b4"></Button>
+   
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Button3"
+       android:layout_centerInParent="true"
+       android:id="@+id/b3"></Button>
+
+   <Switch
+       android:id="@+id/switch1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:text="Dark Mode" />
+
+</RelativeLayout>
+------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<TableRow
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content">
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Button1"
+       android:id="@+id/b1"></Button>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/b1"
+       android:text="Button2"
+       android:paddingEnd="80px"
+       android:paddingStart="80px"
+       android:id="@+id/b2">
+   </Button>
+
+         <Button android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Button1"
+         android:layout_alignParentBottom="true"
+         android:id="@+id/b4"></Button>
+</TableRow>
+
+   <TableRow>
+
+      <TextView
+
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="First Name"
+          android:layout_column="1" />
+
+      <EditText
+          android:width="250px"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+   </TableRow>
+
+   <TableRow>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Button3"
+       android:layout_centerInParent="true"
+       android:id="@+id/b3"></Button>
+
+   <Switch
+       android:id="@+id/switch1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:text="Dark Mode" />
+   </TableRow>
+
+</TableLayout>
+----------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <ImageView
+       android:id="@+id/imgvw1"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:scaleType="centerCrop"
+       android:src="@drawable/index"></ImageView>
+
+   <TextView
+       android:id="@+id/txtvw1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="440dp"
+       android:background="#4C374A"
+       android:padding="10dp"
+       android:text="This is textView"
+       android:textColor="#FFFFFF"
+       android:textSize="20sp" />
+
+   <TextView
+       android:id="@+id/txtvw2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="bottom|center"
+       android:layout_marginTop="25px"
+       android:background="#AA000000"
+       android:padding="10dp"
+       android:text="24th-Dec-2020"
+       android:textColor="#FFFFFF"
+       android:textSize="18sp" />
+
+</FrameLayout>
