@@ -1,6 +1,0 @@
-C:\Windows\system32>netstat -ano | findstr 3306
-  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       10944
-  TCP    [::]:3306              [::]:0                 LISTENING       10944
-
-C:\Windows\system32>taskkill /PID 10944 /F
-SUCCESS: The process with PID 10944 has been terminated.
